@@ -11,7 +11,7 @@ const navigation = [
 ];
 
 const NavBar = () => {
-    const darkComponent = true;
+    const darkComponent = false;
 
     return (
         <header className={`text-primary ${darkComponent && "bg-gray"}`}>
@@ -19,14 +19,17 @@ const NavBar = () => {
                 <div className="flex">
                     <a href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Trouver-mon-chantier</span>
+                        {
+                        projectData[0].informations.logo &&
                        <Image
                         layout="responsive"
                         width={14}
-                        height={36}
-                        src="/logo/logo.png"
+                        height={20}
+                        src={projectData[0].informations.logo}
                         alt="trouver-mon-chantier"
-                        style={{ minWidth: '100px' }}
+                        style={{ minWidth: '90px' }}
                         />
+                        }
                     </a>
                 </div>
                 <div className='md:block hidden'>
