@@ -11,9 +11,11 @@ const navigation = [
 ];
 
 const NavBar = () => {
+    const darkComponent = true;
+
     return (
-        <header className='text-text'>
-            <nav className="mx-auto flex max-w-5xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <header className={`text-primary ${darkComponent && "bg-gray"}`}>
+            <nav className={`mx-auto flex max-w-5xl items-center justify-between p-6 lg:px-8 text-primary `} aria-label="Global">
                 <div className="flex">
                     <a href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Trouver-mon-chantier</span>
