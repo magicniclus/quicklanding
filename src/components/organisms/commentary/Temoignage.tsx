@@ -2,8 +2,15 @@
 import { StarIcon } from '@heroicons/react/24/solid';
 import React, { useRef } from 'react';
 import ButtonPhone from '../../molecules/button/ButtonForm';
+import ButtonClassic from '@/components/molecules/button/ButtonClassic';
 
-const cards = [
+interface Card {
+    text: string;
+    stars: number;
+    name: string;
+}
+
+const cards: Card[] = [
     {
         text: "Travailler avec Nicolas a été une expérience révolutionnaire pour ma stratégie de communication. Grâce à son expertise en Google Ads, nous avons pu atteindre efficacement notre public cible et développer des campagnes qui ont réellement résonné avec nos clients. Nicolas comprend l'importance de la collaboration et son approche personnalisée a permis de renforcer nos relations avec des clients communs. Sa capacité à optimiser nos campagnes et à maximiser notre budget publicitaire a été un atout majeur pour notre entreprise.",
         stars: 5,
@@ -21,8 +28,11 @@ const cards = [
     }
 ]
 
-const Temoignage = () => {
-    const darkComponent = true; // ou utilisez un state ou props pour définir cette valeur
+interface TemoignageProps {
+    darkComponent?: boolean;
+}
+
+const Temoignage: React.FC<TemoignageProps> = ({ darkComponent = false }) => {
     const temoignage = useRef<HTMLFormElement>(null);
 
     // Définition des classes en fonction de darkComponent
@@ -51,7 +61,7 @@ const Temoignage = () => {
                         ))
                     }
                 </div>
-                <ButtonPhone value="En savoir plus" bgColor={darkComponent ? "white" : "secondary"} textColor={darkComponent ? "text": "white"}/>
+                <ButtonClassic value="En savoir plus" href="#form" bgColor={darkComponent ? "white" : "secondary"} textColor={darkComponent ? "text": "white"}/>
             </div>
         </section>
     );
