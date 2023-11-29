@@ -4,8 +4,21 @@ import ButtonForm from '../../molecules/button/ButtonForm';
 import { addProspect } from '../../../firebase/dataManager';
 import { useRouter } from 'next/navigation'
 
-const HeroWithForm = () => {
-    const darkComponent = true;
+interface HeroWithFormProps {
+    darkComponent?: boolean;
+}
+
+interface FormValues {
+    name: string;
+    email: string;
+    tel: string;
+    codePostal: string;
+    nomEntreprise: string;
+    metierPrincipal: string;
+}
+
+
+const HeroWithForm: React.FC<HeroWithFormProps> = ({ darkComponent = false }) => {
     const router = useRouter();
     const [disabled, setDisabled] = useState(true);
 
