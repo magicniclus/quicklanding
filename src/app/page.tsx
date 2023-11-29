@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-between px-24 min-w-[100vw]">
-        <HeroWithForm />
-        <Temoignage />
+        <HeroWithForm darkComponent={false} />
+        <Temoignage darkComponent={true} />
       </main>
       <Footer />
     </>
