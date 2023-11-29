@@ -8,6 +8,10 @@ interface NavLink {
   href: string;
 }
 
+interface FooterProps {
+  darkComponent?: boolean;
+}
+
 const isValidEmail = (email: string): boolean => {
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   return regex.test(email);
@@ -24,8 +28,9 @@ const navigation: { legal: NavLink[] } = {
   ],
 };
 
-export default function Footer() {
-  const darkComponent = false; // ou utilisez un state ou props pour définir cette valeur
+const Footer: React.FC<FooterProps> = ({
+  darkComponent = false,
+}) => {
   const [email, setEmail] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const [notification, setNotification] = useState<string | null>(null);
@@ -78,3 +83,5 @@ export default function Footer() {
     </footer>
   );
 };
+
+export default Footer;
