@@ -10,8 +10,11 @@ const navigation = [
   { name: 'Contact', href: '#form' },
 ];
 
-const NavBar = () => {
-    const darkComponent = false;
+interface NavBarProps {
+    darkComponent?: boolean;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ darkComponent = false }) => {
 
     return (
         <header className={`text-primary ${darkComponent && "bg-gray"}`}>
